@@ -1,9 +1,9 @@
 import unittest
-import gen_refactor  # import the module you want to test
+import diff_refactor  # import the module you want to test
 import textwrap
 
 
-class TestGenRefactor(unittest.TestCase):
+class TestDiffRefactor(unittest.TestCase):
     def setUp(self):
         self.example_resource_move = {
             textwrap.dedent(
@@ -83,12 +83,12 @@ class TestGenRefactor(unittest.TestCase):
 
     def test_generate_resource_move(self):
         for input, expected_output in self.example_resource_move.items():
-            result = gen_refactor.generate_resource_move(input)
+            result = diff_refactor.generate_resource_move(input)
             self.assertEqual(result, expected_output)
 
     def test_generate_module_move(self):
         for input, expected_output in self.example_module_move.items():
-            result = gen_refactor.generate_module_move(input)
+            result = diff_refactor.generate_module_move(input)
             self.assertEqual(result, expected_output)
 
 

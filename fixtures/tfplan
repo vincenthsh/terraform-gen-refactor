@@ -1,0 +1,485 @@
+aws_config_conformance_pack.required-tags-reports_custom-required-tags-dev_21E116B1: Refreshing state... [id=custom-required-tags-dev]
+aws_config_conformance_pack.required-tags-reports_custom-required-tags-prd_8C83DBC6: Refreshing state... [id=custom-required-tags-prd]
+aws_config_conformance_pack.required-tags-reports_custom-required-tags-stg_956BCB23: Refreshing state... [id=custom-required-tags-stg]
+aws_cloudwatch_log_group.required-tags-reports_config-lambda_log-group_612EF1DA: Refreshing state... [id=/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25]
+aws_cloudcontrolapi_resource.required-tags-reports_handshakes_view_A03CB127: Refreshing state... [id=arn:aws:resource-explorer-2:ap-southeast-1:32345678912:view/handshakesView/db5fa2af-7d70-47d0-b3d3-413aa5315925]
+aws_iam_policy.required-tags-reports_config-lambda_service-role_RolePolicy_C42ED74A: Refreshing state... [id=arn:aws:iam::32345678912:policy/config-lambda-role-policy]
+aws_iam_role.required-tags-reports_config-lambda_service-role_05B4D0C1: Refreshing state... [id=config-lambda-role]
+aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528: Refreshing state... [id=config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25]
+aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSConfigRulesExecutionRole_1BD8E8F3: Refreshing state... [id=config-lambda-role-20240807065351257900000005]
+aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSLambdaBasicExecutionRole_84A02244: Refreshing state... [id=config-lambda-role-20240807065350940900000003]
+aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AmazonEC2ReadOnlyAccess_5A1D289B: Refreshing state... [id=config-lambda-role-20240807065351237400000004]
+aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSResourceExplorerReadOnlyAccess_2CA846ED: Refreshing state... [id=config-lambda-role-20240807065350615100000002]
+aws_lambda_permission.required-tags-reports_config-lambda_config_1F9433B7: Refreshing state... [id=terraform-20240820063616679900000003]
+aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_PolicyAttachment_7DA45F20: Refreshing state... [id=config-lambda-role-20240820063610830400000002]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  - destroy
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # aws_cloudcontrolapi_resource.required-tags-reports_handshakes_view will be created
+  + resource "aws_cloudcontrolapi_resource" "required-tags-reports_handshakes_view" {
+      + desired_state = jsonencode(
+            {
+              + IncludedProperties = [
+                  + {
+                      + Name = "tags"
+                    },
+                ]
+              + Scope              = "arn:aws:organizations::12345678912:ou/o-abC789/ou-xwxw-x6obxzfk"
+              + ViewName           = "handshakesView"
+            }
+        )
+      + id            = (known after apply)
+      + properties    = (known after apply)
+      + schema        = (sensitive value)
+      + type_name     = "AWS::ResourceExplorer2::View"
+    }
+
+  # aws_cloudcontrolapi_resource.required-tags-reports_handshakes_view_A03CB127 will be destroyed
+  # (because aws_cloudcontrolapi_resource.required-tags-reports_handshakes_view_A03CB127 is not in configuration)
+  - resource "aws_cloudcontrolapi_resource" "required-tags-reports_handshakes_view_A03CB127" {
+      - desired_state = jsonencode(
+            {
+              - IncludedProperties = [
+                  - {
+                      - Name = "tags"
+                    },
+                ]
+              - Scope              = "arn:aws:organizations::12345678912:ou/o-abC789/ou-xwxw-x6obxzfk"
+              - ViewName           = "handshakesView"
+            }
+        ) -> null
+      - id            = "arn:aws:resource-explorer-2:ap-southeast-1:32345678912:view/handshakesView/db5fa2af-7d70-47d0-b3d3-413aa5315925" -> null
+      - properties    = jsonencode(
+            {
+              - Filters            = {
+                  - FilterString = ""
+                }
+              - IncludedProperties = [
+                  - {
+                      - Name = "tags"
+                    },
+                ]
+              - Scope              = "arn:aws:organizations::12345678912:ou/o-abC789/ou-xwxw-x6obxzfk"
+              - Tags               = {}
+              - ViewArn            = "arn:aws:resource-explorer-2:ap-southeast-1:32345678912:view/handshakesView/db5fa2af-7d70-47d0-b3d3-413aa5315925"
+              - ViewName           = "handshakesView"
+            }
+        ) -> null
+      - schema        = (sensitive value) -> null
+      - type_name     = "AWS::ResourceExplorer2::View" -> null
+    }
+
+  # aws_cloudwatch_log_group.required-tags-reports_config-lambda_log-group will be created
+  + resource "aws_cloudwatch_log_group" "required-tags-reports_config-lambda_log-group" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + log_group_class   = (known after apply)
+      + name              = "/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25"
+      + name_prefix       = (known after apply)
+      + retention_in_days = 7
+      + skip_destroy      = false
+      + tags_all          = {
+          + "env"        = "shared-services"
+          + "managedBy"  = "terraform"
+          + "service"    = "config-lambda"
+        }
+    }
+
+  # aws_cloudwatch_log_group.required-tags-reports_config-lambda_log-group_612EF1DA will be destroyed
+  # (because aws_cloudwatch_log_group.required-tags-reports_config-lambda_log-group_612EF1DA is not in configuration)
+  - resource "aws_cloudwatch_log_group" "required-tags-reports_config-lambda_log-group_612EF1DA" {
+      - arn               = "arn:aws:logs:ap-southeast-1:32345678912:log-group:/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - id                = "/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - log_group_class   = "STANDARD" -> null
+      - name              = "/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - name_prefix       = "/aws/lambda/config-lambda-c84f231f6ec15401" -> null
+      - retention_in_days = 7 -> null
+      - skip_destroy      = false -> null
+      - tags              = {} -> null
+      - tags_all          = {
+          - "env"        = "shared-services"
+          - "managedBy"  = "terraform"
+          - "service"    = "config-lambda"
+        } -> null
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-dev1 will be created
+  + resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-dev1" {
+      + arn           = (known after apply)
+      + id            = (known after apply)
+      + name          = "custom-required-tags-dev"
+      + template_body = (known after apply)
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-dev_21E116B1 will be destroyed
+  # (because aws_config_conformance_pack.required-tags-reports_custom-required-tags-dev_21E116B1 is not in configuration)
+  - resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-dev_21E116B1" {
+      - arn           = "arn:aws:config:ap-southeast-1:32345678912:conformance-pack/custom-required-tags-dev/conformance-pack-mwuycymgv" -> null
+      - id            = "custom-required-tags-dev" -> null
+      - name          = "custom-required-tags-dev" -> null
+      - template_body = <<-EOT
+            Resources:
+              requiredTags:
+                Type: AWS::Config::ConfigRule
+                Properties:
+                  ConfigRuleName: custom-required-tags-dev
+                  Description: ' '
+                  InputParameters: {"awsAccountId":22345678912,"env":"development"}
+                  Source:
+                    Owner: CUSTOM_LAMBDA
+                    SourceDetails:
+                      - EventSource: aws.config
+                        MessageType: ScheduledNotification
+                        MaximumExecutionFrequency: TwentyFour_Hours
+                    SourceIdentifier: arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25
+        EOT -> null
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-prd will be created
+  + resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-prd" {
+      + arn           = (known after apply)
+      + id            = (known after apply)
+      + name          = "custom-required-tags-prd"
+      + template_body = (known after apply)
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-prd_8C83DBC6 will be destroyed
+  # (because aws_config_conformance_pack.required-tags-reports_custom-required-tags-prd_8C83DBC6 is not in configuration)
+  - resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-prd_8C83DBC6" {
+      - arn           = "arn:aws:config:ap-southeast-1:32345678912:conformance-pack/custom-required-tags-prd/conformance-pack-mcigwfkp3" -> null
+      - id            = "custom-required-tags-prd" -> null
+      - name          = "custom-required-tags-prd" -> null
+      - template_body = <<-EOT
+            Resources:
+              requiredTags:
+                Type: AWS::Config::ConfigRule
+                Properties:
+                  ConfigRuleName: custom-required-tags-prd
+                  Description: ' '
+                  InputParameters: {"awsAccountId":21987654321,"env":"production"}
+                  Source:
+                    Owner: CUSTOM_LAMBDA
+                    SourceDetails:
+                      - EventSource: aws.config
+                        MessageType: ScheduledNotification
+                        MaximumExecutionFrequency: TwentyFour_Hours
+                    SourceIdentifier: arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25
+        EOT -> null
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-stg will be created
+  + resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-stg" {
+      + arn           = (known after apply)
+      + id            = (known after apply)
+      + name          = "custom-required-tags-stg"
+      + template_body = (known after apply)
+    }
+
+  # aws_config_conformance_pack.required-tags-reports_custom-required-tags-stg_956BCB23 will be destroyed
+  # (because aws_config_conformance_pack.required-tags-reports_custom-required-tags-stg_956BCB23 is not in configuration)
+  - resource "aws_config_conformance_pack" "required-tags-reports_custom-required-tags-stg_956BCB23" {
+      - arn           = "arn:aws:config:ap-southeast-1:32345678912:conformance-pack/custom-required-tags-stg/conformance-pack-g4cojidwp" -> null
+      - id            = "custom-required-tags-stg" -> null
+      - name          = "custom-required-tags-stg" -> null
+      - template_body = <<-EOT
+            Resources:
+              requiredTags:
+                Type: AWS::Config::ConfigRule
+                Properties:
+                  ConfigRuleName: custom-required-tags-stg
+                  Description: ' '
+                  InputParameters: {"awsAccountId":42345678912,"env":"staging"}
+                  Source:
+                    Owner: CUSTOM_LAMBDA
+                    SourceDetails:
+                      - EventSource: aws.config
+                        MessageType: ScheduledNotification
+                        MaximumExecutionFrequency: TwentyFour_Hours
+                    SourceIdentifier: arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25
+        EOT -> null
+    }
+
+  # aws_iam_policy.required-tags-reports_config-lambda_service-role_RolePolicy will be created
+  + resource "aws_iam_policy" "required-tags-reports_config-lambda_service-role_RolePolicy" {
+      + arn              = (known after apply)
+      + attachment_count = (known after apply)
+      + id               = (known after apply)
+      + name             = (known after apply)
+      + name_prefix      = (known after apply)
+      + path             = "/"
+      + policy           = (known after apply)
+      + policy_id        = (known after apply)
+      + tags_all         = {
+          + "env"        = "shared-services"
+          + "managedBy"  = "terraform"
+          + "service"    = "config-lambda"
+        }
+    }
+
+  # aws_iam_policy.required-tags-reports_config-lambda_service-role_RolePolicy_C42ED74A will be destroyed
+  # (because aws_iam_policy.required-tags-reports_config-lambda_service-role_RolePolicy_C42ED74A is not in configuration)
+  - resource "aws_iam_policy" "required-tags-reports_config-lambda_service-role_RolePolicy_C42ED74A" {
+      - arn              = "arn:aws:iam::32345678912:policy/config-lambda-role-policy" -> null
+      - attachment_count = 1 -> null
+      - id               = "arn:aws:iam::32345678912:policy/config-lambda-role-policy" -> null
+      - name             = "config-lambda-role-policy" -> null
+      - path             = "/" -> null
+      - policy           = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = [
+                          - "logs:CreateLogStream",
+                          - "logs:PutLogEvents",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = [
+                          - "arn:aws:logs:ap-southeast-1:32345678912:log-group:/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25",
+                          - "arn:aws:logs:ap-southeast-1:32345678912:log-group:/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25:log-stream:*",
+                        ]
+                    },
+                  - {
+                      - Action   = "secretsmanager:GetSecretValue"
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:secretsmanager:ap-southeast-1:32345678912:secret:dd-agent-shared-services-ap-southeast-1-forwarder-datadog-api-key-mDsN8E"
+                      - Sid      = "ddApiKeyAccessPolicy"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - policy_id        = "ANPAXM6RZSHUNORQTB6YD" -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "env"        = "shared-services"
+          - "managedBy"  = "terraform"
+          - "service"    = "config-lambda"
+        } -> null
+    }
+
+  # aws_iam_role.required-tags-reports_config-lambda_service-role will be created
+  + resource "aws_iam_role" "required-tags-reports_config-lambda_service-role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:SetSourceIdentity",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = [
+                              + "lambda.amazonaws.com",
+                            ]
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = (known after apply)
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "env"        = "shared-services"
+          + "managedBy"  = "terraform"
+          + "service"    = "config-lambda"
+        }
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role.required-tags-reports_config-lambda_service-role_05B4D0C1 will be destroyed
+  # (because aws_iam_role.required-tags-reports_config-lambda_service-role_05B4D0C1 is not in configuration)
+  - resource "aws_iam_role" "required-tags-reports_config-lambda_service-role_05B4D0C1" {
+      - arn                   = "arn:aws:iam::32345678912:role/config-lambda-role" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = [
+                          - "sts:AssumeRole",
+                          - "sts:SetSourceIdentity",
+                        ]
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = [
+                              - "lambda.amazonaws.com",
+                            ]
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2024-08-07T06:53:49Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "config-lambda-role" -> null
+      - managed_policy_arns   = [
+          - "arn:aws:iam::32345678912:policy/config-lambda-role-policy",
+          - "arn:aws:iam::aws:policy/AWSResourceExplorerReadOnlyAccess",
+          - "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess",
+          - "arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole",
+          - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+        ] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "config-lambda-role" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "env"        = "shared-services"
+          - "managedBy"  = "terraform"
+          - "service"    = "config-lambda"
+        } -> null
+      - unique_id             = "AROAXM6RZSHUOOZYEMEE2" -> null
+    }
+
+  # aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSConfigRulesExecutionRole_1BD8E8F3 must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "required-tags-reports_config-lambda_service-role_AWSConfigRulesExecutionRole_1BD8E8F3" {
+      ~ id         = "config-lambda-role-20240807065351257900000005" -> (known after apply)
+      ~ role       = "config-lambda-role" # forces replacement -> (known after apply) # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSLambdaBasicExecutionRole_84A02244 must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "required-tags-reports_config-lambda_service-role_AWSLambdaBasicExecutionRole_84A02244" {
+      ~ id         = "config-lambda-role-20240807065350940900000003" -> (known after apply)
+      ~ role       = "config-lambda-role" # forces replacement -> (known after apply) # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AWSResourceExplorerReadOnlyAccess_2CA846ED must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "required-tags-reports_config-lambda_service-role_AWSResourceExplorerReadOnlyAccess_2CA846ED" {
+      ~ id         = "config-lambda-role-20240807065350615100000002" -> (known after apply)
+      ~ role       = "config-lambda-role" # forces replacement -> (known after apply) # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_AmazonEC2ReadOnlyAccess_5A1D289B must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "required-tags-reports_config-lambda_service-role_AmazonEC2ReadOnlyAccess_5A1D289B" {
+      ~ id         = "config-lambda-role-20240807065351237400000004" -> (known after apply)
+      ~ role       = "config-lambda-role" # forces replacement -> (known after apply) # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.required-tags-reports_config-lambda_service-role_PolicyAttachment_7DA45F20 must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "required-tags-reports_config-lambda_service-role_PolicyAttachment_7DA45F20" {
+      ~ id         = "config-lambda-role-20240820063610830400000002" -> (known after apply)
+      ~ policy_arn = "arn:aws:iam::32345678912:policy/config-lambda-role-policy" # forces replacement -> (known after apply) # forces replacement
+      ~ role       = "config-lambda-role" # forces replacement -> (known after apply) # forces replacement
+    }
+
+  # aws_lambda_function.required-tags-reports_config-lambda_fn will be created
+  + resource "aws_lambda_function" "required-tags-reports_config-lambda_fn" {
+      + architectures                  = (known after apply)
+      + arn                            = (known after apply)
+      + code_sha256                    = (known after apply)
+      + filename                       = "assets/required-tags-reports_config-lambda_lambda-asset_8A3B7766/926DFBD9F564ED156F732BF0882EFA48/archive.zip"
+      + function_name                  = "config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25"
+      + handler                        = "index.handler"
+      + id                             = (known after apply)
+      + invoke_arn                     = (known after apply)
+      + last_modified                  = (known after apply)
+      + memory_size                    = 512
+      + package_type                   = "Zip"
+      + publish                        = false
+      + qualified_arn                  = (known after apply)
+      + qualified_invoke_arn           = (known after apply)
+      + reserved_concurrent_executions = -1
+      + role                           = (known after apply)
+      + runtime                        = "nodejs18.x"
+      + signing_job_arn                = (known after apply)
+      + signing_profile_version_arn    = (known after apply)
+      + skip_destroy                   = false
+      + source_code_hash               = "926DFBD9F564ED156F732BF0882EFA48"
+      + source_code_size               = (known after apply)
+      + tags_all                       = {
+          + "env"        = "shared-services"
+          + "managedBy"  = "terraform"
+          + "service"    = "config-lambda"
+        }
+      + timeout                        = 600
+      + version                        = (known after apply)
+
+      + environment {
+          + variables = {
+              + "DD_API_KEY_SECRET_ARN" = "arn:aws:secretsmanager:ap-southeast-1:32345678912:secret:dd-agent-shared-services-ap-southeast-1-forwarder-datadog-api-key-mDsN8E"
+              + "DD_SITE"               = "datadoghq.com"
+            }
+        }
+    }
+
+  # aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528 will be destroyed
+  # (because aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528 is not in configuration)
+  - resource "aws_lambda_function" "required-tags-reports_config-lambda_fn_A4B30528" {
+      - architectures                  = [
+          - "x86_64",
+        ] -> null
+      - arn                            = "arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - code_sha256                    = "0vQFoNczUJ+Ufn40BXp88K+Iynd7RLNA+Ab0z4t5qu8=" -> null
+      - filename                       = "assets/required-tags-reports_config-lambda_lambda-asset_8A3B7766/926DFBD9F564ED156F732BF0882EFA48/archive.zip" -> null
+      - function_name                  = "config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - handler                        = "index.handler" -> null
+      - id                             = "config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+      - invoke_arn                     = "arn:aws:apigateway:ap-southeast-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25/invocations" -> null
+      - last_modified                  = "2024-09-09T05:25:09.000+0000" -> null
+      - layers                         = [] -> null
+      - memory_size                    = 512 -> null
+      - package_type                   = "Zip" -> null
+      - publish                        = false -> null
+      - qualified_arn                  = "arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25:$LATEST" -> null
+      - qualified_invoke_arn           = "arn:aws:apigateway:ap-southeast-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-1:32345678912:function:config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25:$LATEST/invocations" -> null
+      - reserved_concurrent_executions = -1 -> null
+      - role                           = "arn:aws:iam::32345678912:role/config-lambda-role" -> null
+      - runtime                        = "nodejs18.x" -> null
+      - skip_destroy                   = false -> null
+      - source_code_hash               = "926DFBD9F564ED156F732BF0882EFA48" -> null
+      - source_code_size               = 1522640 -> null
+      - tags                           = {} -> null
+      - tags_all                       = {
+          - "env"        = "shared-services"
+          - "managedBy"  = "terraform"
+          - "owner"      = "security"
+        } -> null
+      - timeout                        = 600 -> null
+      - version                        = "$LATEST" -> null
+
+      - environment {
+          - variables = {
+              - "DD_API_KEY_SECRET_ARN" = "arn:aws:secretsmanager:ap-southeast-1:32345678912:secret:dd-agent-shared-services-ap-southeast-1-forwarder-datadog-api-key-mDsN8E"
+              - "DD_SITE"               = "datadoghq.com"
+            } -> null
+        }
+
+      - ephemeral_storage {
+          - size = 512 -> null
+        }
+
+      - logging_config {
+          - log_format = "Text" -> null
+          - log_group  = "/aws/lambda/config-lambda-c84f231f6ec1540107788f7aa1f45dfbbaae609e25" -> null
+        }
+
+      - tracing_config {
+          - mode = "PassThrough" -> null
+        }
+    }
+
+Plan: 13 to add, 0 to change, 13 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

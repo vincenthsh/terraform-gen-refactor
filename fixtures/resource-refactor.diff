@@ -1,0 +1,105 @@
+diff --git a/terraform/modules/atlantis/main.tf b/terraform/modules/atlantis/main.tf
+index 62071e4f..8328219b 100644
+--- a/terraform/modules/atlantis/main.tf
++++ b/terraform/modules/atlantis/main.tf
+@@ -3,7 +3,7 @@ data "aws_route53_zone" "domain" {
+   private_zone = false
+ }
+ 
+-resource "aws_security_group" "node" {
++resource "aws_security_group" "this" {
+   name        = "${var.name_prefix}-security-group"
+   description = "${var.name_prefix} security group"
+   vpc_id      = var.vpc_id
+@@ -45,7 +45,7 @@ data "aws_subnet" "main" {
+   id = var.subnet_id
+ }
+ 
+-resource "aws_eip" "node" {
++resource "aws_eip" "this" {
+   domain = "vpc"
+ }
+ 
+@@ -73,10 +73,10 @@ resource "aws_route53_record" "atlantis" {
+   name    = var.hostname_atlantis
+   ttl     = 80
+   type    = "A"
+-  records = [aws_eip.node.public_ip]
++  records = [aws_eip.this.public_ip]
+ }
+ 
+-data "cloudinit_config" "node" {
++data "cloudinit_config" "this" {
+   gzip = false
+   part {
+     # https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-script
+@@ -84,7 +84,7 @@ data "cloudinit_config" "node" {
+     content = templatefile("${path.module}/config/cloud-init.sh.tpl", {
+       name_prefix                     = var.name_prefix
+       ebs_volume_id                   = aws_ebs_volume.data.id
+-      allocation_id                   = aws_eip.node.id
++      allocation_id                   = aws_eip.this.id
+       volume_mount                    = local.volume_mount
+       datadog_api_key_arn             = var.datadog_api_key_arn
+       datadog_host_tags               = var.datadog_host_tags
+@@ -93,18 +93,18 @@ data "cloudinit_config" "node" {
+   }
+ }
+ 
+-resource "aws_launch_template" "node" {
++resource "aws_launch_template" "this" {
+   name                                 = "${var.name_prefix}-node"
+-  vpc_security_group_ids               = [aws_security_group.node.id]
++  vpc_security_group_ids               = [aws_security_group.this.id]
+   image_id                             = var.ami_id
+-  user_data                            = data.cloudinit_config.node.rendered
++  user_data                            = data.cloudinit_config.this.rendered
+   instance_type                        = var.instance_type
+   instance_initiated_shutdown_behavior = "terminate"
+   disable_api_stop                     = false
+   disable_api_termination              = false
+ 
+   iam_instance_profile {
+-    name = aws_iam_instance_profile.node.name
++    name = aws_iam_instance_profile.this.name
+   }
+ 
+   placement {
+@@ -137,7 +137,7 @@ locals {
+   asg_max = 1
+ }
+ 
+-resource "aws_autoscaling_group" "node" {
++resource "aws_autoscaling_group" "this" {
+   name_prefix         = var.name_prefix
+   vpc_zone_identifier = [data.aws_subnet.main.id]
+   desired_capacity    = 1
+@@ -156,8 +156,8 @@ resource "aws_autoscaling_group" "node" {
+ 
+ 
+   launch_template {
+-    id      = aws_launch_template.node.id
+-    version = aws_launch_template.node.latest_version
++    id      = aws_launch_template.this.id
++    version = aws_launch_template.this.latest_version
+   }
+ 
+   instance_refresh {
+@@ -177,7 +177,7 @@ resource "aws_autoscaling_schedule" "scale_down" {
+   max_size               = local.asg_max
+   desired_capacity       = 0
+   recurrence             = "0 ${var.hour_to_scale_down} * * *"
+-  autoscaling_group_name = aws_autoscaling_group.node.name
++  autoscaling_group_name = aws_autoscaling_group.this.name
+   lifecycle {
+     ignore_changes = [start_time]
+   }
+@@ -191,7 +191,7 @@ resource "aws_autoscaling_schedule" "scale_up" {
+   # UTC 23:00 SUN == SGT 07:00 MON
+   # UTC 23:00 THU == SGT 07:00 FRI
+   recurrence             = "0 ${var.hour_to_scale_up} * * SUN-THU"
+-  autoscaling_group_name = aws_autoscaling_group.node.name
++  autoscaling_group_name = aws_autoscaling_group.this.name
+   lifecycle {
+     ignore_changes = [start_time]
+   }

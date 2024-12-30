@@ -47,3 +47,9 @@ moved {
   from = aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528
   to   = aws_lambda_function.required-tags-reports_config-lambda_fn
 }
+
+# rename module.prd-foo-docdb_03006172.random_password.master[0]
+moved {
+  from = module.prd-foo-docdb_03006172.random_password.master[0]
+  to   = module.docdb_05536A7B.random_password.master[0]
+}

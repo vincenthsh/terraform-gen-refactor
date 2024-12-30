@@ -3,7 +3,7 @@ import re
 
 
 def generate_refactor(tfplan_output):
-    resource_action_pattern = re.compile(r'# (.*)(aws_[^.]*)\.(.*) will be (created|destroyed)')
+    resource_action_pattern = re.compile(r'# (.*)((?:random|aws)_[^.]*)\.(.*) will be (created|destroyed)')
     matches = resource_action_pattern.findall(tfplan_output)
 
     if not matches:

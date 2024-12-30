@@ -421,6 +421,43 @@ Terraform will perform the following actions:
         }
     }
 
+  # module.docdb_05536A7B.random_password.master[0] will be created
+  + resource "random_password" "master" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 16
+      + lower            = true
+      + min_lower        = 0
+      + min_numeric      = 0
+      + min_special      = 0
+      + min_upper        = 0
+      + number           = true
+      + numeric          = true
+      + override_special = "!#$%&*()-_=+[]{}<>:?"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+  # module.prd-foo-docdb_03006172.random_password.master[0] will be destroyed
+  # (because random_password.master is not in configuration)
+  - resource "random_password" "master" {
+      - bcrypt_hash      = (sensitive value) -> null
+      - id               = "none" -> null
+      - length           = 16 -> null
+      - lower            = true -> null
+      - min_lower        = 0 -> null
+      - min_numeric      = 0 -> null
+      - min_special      = 0 -> null
+      - min_upper        = 0 -> null
+      - number           = true -> null
+      - numeric          = true -> null
+      - override_special = "!#$%&*()-_=+[]{}<>:?" -> null
+      - result           = (sensitive value) -> null
+      - special          = true -> null
+      - upper            = true -> null
+    }
+
   # aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528 will be destroyed
   # (because aws_lambda_function.required-tags-reports_config-lambda_fn_A4B30528 is not in configuration)
   - resource "aws_lambda_function" "required-tags-reports_config-lambda_fn_A4B30528" {
